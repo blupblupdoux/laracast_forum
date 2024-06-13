@@ -10,3 +10,10 @@ test('Should return the correct page', function () {
       ->component('Posts/Index')
     );
 });
+
+test('Should have posts', function () {
+  get(route('posts.index'))
+    ->assertInertia(fn (AssertableInertia $page) => $page
+      ->has('posts')
+    );
+});
